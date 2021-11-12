@@ -6,7 +6,7 @@
   <arg name="server" default="localhost"/>
 
 
-  <!--node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
+  <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
     <rosparam subst_value="true">
       server: $(arg server)
       port: 3883
@@ -24,7 +24,7 @@
       #- FirstTracker
       #- SecondTracker
     </rosparam>
-  </node-->
+  </node>
 
   <include file="$(find crazyflie_driver)/launch/crazyflie_server.launch">
   </include>
@@ -40,12 +40,9 @@
       <param name="dev" value="$(arg joy_dev)" />
     </node>
 
-    <include file="$(find crazyflie_demo)/launch/xbox360.launch">
+    <include file="$(find crazyflie_demo)/launch/turningy.launch">
     </include>
 
-
-    <!--node name="crazyflie_demo_controller" pkg="crazyflie_demo" type="controller.py" output="screen">
-    </node-->
   </group>
 
 </launch>

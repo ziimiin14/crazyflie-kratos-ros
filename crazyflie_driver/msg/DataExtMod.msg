@@ -1,0 +1,13 @@
+Header header
+float64 conPadM3
+float64 conPadM4
+float64 Pterm
+float64 Iterm
+float64 Dterm
+float64 heading
+float64 padDir
+float64 padGain
+float64 flapM1
+float64 flapM2
+geometry_msgs/Pose poseCurrent
+geometry_msgs/Point posTarget

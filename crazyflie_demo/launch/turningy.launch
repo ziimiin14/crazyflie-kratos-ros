@@ -5,26 +5,16 @@
   <!-- Note that axis IDs are those from the joystick message plus one, to be able to invert axes by specifiying either positive or negative axis numbers.-->
   <!-- Axis 2 from joy message thus has to be set as '3' or '-3'(inverted mode) below-->
   <node name="quadrotor_teleop" pkg="crazyflie_demo" type="quadrotor_teleop" output="screen">
-    <!--param name="x_axis" value="-3"/>
-    <param name="y_axis" value="-3"/>
-    <param name="z_axis" value="0"/>
-    <param name="yaw_axis" value="0"/-->
     <param name="thrust_axis" value="-3"/>
     <param name="roll_axis" value="-1"/>
     <param name="pitch_axis" value="-2"/>
     <param name="mode_axis" value="-5"/>
-    <param name="kp" value="2000"/>
+    <param name="kp" value="3275"/>
     <param name="Pgain" value="70"/>
     <param name="Igain" value="40"/>
     <param name="Dgain" value="50"/>
-    <!--param name="target" value="0"/-->
+    <param name="traverse_range" value="30"/>
     <remap from="kratos/pose" to="/vrpn_client_node/zm_kratos/pose" />
 
-
-
-    <!--param name="x_velocity_max" value="65535"/>
-    <param name="y_velocity_max" value="65535"/>
-    <param name="z_velocity_max" value="60000"/>
-    <param name="yaw_velocity_max" value="-200"/-->
   </node>
 </launch>

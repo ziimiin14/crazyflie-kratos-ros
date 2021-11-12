@@ -5,7 +5,7 @@ project(crazyflie_demo)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
+  roscpp crazyflie_driver
 )
 
 ## System dependencies are found with CMake's conventions
@@ -80,7 +80,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES crazyflie_demo
- CATKIN_DEPENDS roscpp
+ CATKIN_DEPENDS roscpp crazyflie_driver
 #  DEPENDS system_lib
 )
 
@@ -105,6 +105,7 @@ add_executable(quadrotor_teleop src/quadrotor_teleop.cpp)
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 # add_dependencies(crazyflie_demo_node crazyflie_demo_generate_messages_cpp)
+add_dependencies(quadrotor_teleop ${catkin_EXPORTED_TARGETS})
 
 # Specify libraries to link a library or executable target against
 target_link_libraries(quadrotor_teleop

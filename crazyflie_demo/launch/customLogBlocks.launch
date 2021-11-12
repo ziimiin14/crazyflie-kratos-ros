@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <launch>
-  <arg name="uri" default="radio://0/80/2M" />
+  <arg name="uri" default="radio://0/80/2M/E7E7E7E7E7" />
 
   <include file="$(find crazyflie_driver)/launch/crazyflie_server.launch">
   </include>
@@ -14,7 +14,7 @@
       <rosparam>
         genericLogTopics: ["log1", "log2"]
         genericLogTopicFrequencies: [10, 100]
-        genericLogTopic_log1_Variables: ["pm.vbat"]
+        genericLogTopic_log1_Variables: ["range.zrange"]
         genericLogTopic_log2_Variables: ["acc.x", "acc.y", "acc.z"]
       </rosparam>
     </node>

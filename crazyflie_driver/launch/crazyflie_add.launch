@@ -29,5 +29,10 @@
     <param name="enable_logging_battery" value="$(arg enable_logging_battery)" />
     <param name="enable_logging_pose" value="$(arg enable_logging_pose)" />
     <param name="enable_logging_packets" value="$(arg enable_logging_packets)"/>
+    <rosparam>
+        genericLogTopics: ["log1"]
+        genericLogTopicFrequencies: [10]
+        genericLogTopic_log1_Variables: ["range.zrange"]
+    </rosparam>
   </node>
 </launch>
