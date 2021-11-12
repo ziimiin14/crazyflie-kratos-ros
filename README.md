@@ -36,12 +36,17 @@ P/S: If kratos drifts a ton, you are able to tune down the kp value from 6550 to
 ## Scripts
 Refers to this [scripts folder](https://github.com/ziimiin14/crazyflie-kratos-ros/tree/master/scripts)
 
-[rosbag_readDataExtMod.py](https://github.com/ziimiin14/crazyflie-kratos-ros/blob/master/scripts/rosbag_readDataExtMod.py) reads the rosbag file recorded 'DataExtMod' raw data.
-[rosbag_readEventStruct.py](https://github.com/ziimiin14/crazyflie-kratos-ros/blob/master/scripts/rosbag_readEventStruct.py) reads the rosbag file recorded 'eventStruct' msg recorded from event camera and turn the raw data into bin files.
+- [rosbag_readDataExtMod.py](https://github.com/ziimiin14/crazyflie-kratos-ros/blob/master/scripts/rosbag_readDataExtMod.py) reads the rosbag file recorded 'DataExtMod' raw data.
+
+- [rosbag_readEventStruct.py](https://github.com/ziimiin14/crazyflie-kratos-ros/blob/master/scripts/rosbag_readEventStruct.py) reads the rosbag file recorded 'eventStruct' msg recorded from event camera and turn the raw data into bin files.
 
 To run rosbag_readEventStruct.py
 ```
 python3 rosbag_readEventStruct.py ROSBAG_PATH --time_output_file=DESIRED_TIME_BIN_FILE_PATH --event_output_file=DESIRED_EVENT_BIN_FILE_PATH
+
+# Example python call
+python3 rosbag_readEventStruct.py ../kratos_quat_crazyflie_dataset/data_fly/eventStruct/bag/record_1_11122021_eventStruct.bag --time_output_file=../kratos_quat_crazyflie_dataset/data_fly/eventStruct/bin/record_1_11122021_eventTime.bin --event_output_file=../kratos_quat_crazyflie_dataset/data_fly/eventStruct/bin/record_1_11122021_eventOnly.bin
+
 ```
 ## Citing This Work
 
