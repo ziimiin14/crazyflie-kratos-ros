@@ -1,21 +1,48 @@
 [![Build Status](https://travis-ci.org/whoenig/crazyflie_ros.svg?branch=master)](https://travis-ci.org/whoenig/crazyflie_ros)
 
-> **WARNING**: This repository is deprecated. Please use the [Crazyswarm](http://crazyswarm.readthedocs.io) instead, even when only operating a single Crazyflie. If you are missing features in the Crazyswarm, feel free to [open an open issue](https://github.com/USC-ACTLab/crazyswarm/issues).
-
-crazyflie_ros
+crazyflie ros for kratos
 =============
 
-ROS stack for Bitcraze Crazyflie (http://www.bitcraze.se/), with the following features:
+## Installation
 
-* Support for Crazyflie 1.0 and Crazyflie 2.0 (using stock firmware)
-* Publishes on-board sensors in ROS standard message formats
-* Supports ROS parameters to reconfigure crazyflie parameters
-* Support for using multiple Crazyflies with a single Crazyradio
-* Includes external controller for waypoint navigation (if motion capture system is available)
-* No dependency to the Bitcraze SDK (Driver and Controller written in C++)
+Clone the package into your catkin workspace:
+```
+mkdir catkin_ws_crazyflie
+cd catkin_ws_crazyflie
+mkdir src
+cd src
+git clone https://github.com/ziimiin14/crazyflie-kratos-ros.git
+cd crazyflie-kratos-ros
+git submodule init
+git submodule update
+cd ~/catkin_ws_crazyflie
+catkin init
+catkin_make
+```
 
-A tutorial (for a slightly older version) is available in W. Hönig and N. Ayanian. "Flying Multiple UAVs Using ROS", Chapter in Robot Operating System (ROS): The Complete Reference (Volume 2), Springer, 2017. (see http://act.usc.edu/publications.html for a free pre-print).
+Use `catkin_make` on your workspace to compile.
 
+## Run
+
+### Crazyflie_demo
+
+This package contains a rich set of examples to get quickly started with the Crazyflie bolt for kratos
+
+For teleoperation using a joystick, use:
+```
+roslaunch crazyflie_demo vrpn_teleop_turningy.launch server:=192.168.137.1
+```
+P/S: If kratos drifts a ton, you are able to tune down the kp value from 6550 to 3275 in this [launch file](https://github.com/ziimiin14/crazyflie-kratos-ros/blob/master/crazyflie_demo/launch/turningy.launch). The kp value refers to the p gain value for the flaps control.
+## Scripts
+Refers to this [scripts folder](https://github.com/ziimiin14/crazyflie-kratos-ros/tree/master/scripts)
+
+[rosbag_readDataExtMod.py](https://github.com/ziimiin14/crazyflie-kratos-ros/blob/master/scripts/rosbag_readDataExtMod.py) reads the rosbag file recorded 'DataExtMod' raw data.
+[rosbag_readEventStruct.py](https://github.com/ziimiin14/crazyflie-kratos-ros/blob/master/scripts/rosbag_readEventStruct.py) reads the rosbag file recorded 'eventStruct' msg recorded from event camera and turn the raw data into bin files.
+
+To run rosbag_readEventStruct.py
+```
+python3 rosbag_readEventStruct.py ROSBAG_PATH --time_output_file=DESIRED_TIME_BIN_FILE_PATH --event_output_file=DESIRED_EVENT_BIN_FILE_PATH
+```
 ## Citing This Work
 
 This project is published under the very permissive MIT License. However,
@@ -50,26 +77,3 @@ If your work is related to Mixed Reality, you might cite the paper which introdu
 ```
 
 For any other mentioning please include my affiliation (ACTLab at University of Southern California or USC in short; The link to our webpage is http://act.usc.edu) as this work was partially done as part of my research at USC.
-
-## Installation
-
-Clone the package into your catkin workspace:
-```
-git clone https://github.com/whoenig/crazyflie_ros.git
-cd crazyflie_ros
-git submodule init
-git submodule update
-```
-
-Use `catkin_make` on your workspace to compile.
-
-## Run
-
-### Crazyflie_demo
-
-This package contains a rich set of examples to get quickly started with the Crazyflie bolt for kratos
-
-For teleoperation using a joystick, use:
-```
-roslaunch crazyflie_demo vrpn_teleop_turningy.launch server:=192.168.137.1
-```
