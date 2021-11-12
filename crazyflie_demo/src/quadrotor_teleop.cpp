@@ -309,13 +309,16 @@ public:
 
     }
 
+    x_cur = p_.x*100;  // whenever using optitrack, convert m to cm 
+    y_cur = p_.y*100;  // whenever using optitrack, convert m to cm 
+    z_cur = p_.z*100; // whenever using optitrack, convert m to cm 
+    // z_cur = p_.z/10; // whenever using zranger, convert mm to cm 
+
     if (z_tar == 0){
       conPad_ = (throttle_percentage*15000/0.2);
     }
 
     else{
-      z_cur = p_.z*100; // whenever using optitrack, convert m to cm 
-      // z_cur = p_.z/10; // whenever using zranger, convert mm to cm 
 
       error = z_tar - z_cur;
     
@@ -343,8 +346,7 @@ public:
 
   void P_position_control_update()
   {
-    x_cur = p_.x*100;  // whenever using optitrack, convert m to cm 
-    y_cur = p_.y*100;  // whenever using optitrack, convert m to cm 
+
     if (c_.roll_cmd >=0){
       x_tar = ((lowest_-c_.roll_cmd)*traverse_range/lowest_)-traverse_range;
     }

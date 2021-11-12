@@ -9,7 +9,7 @@
     <param name="roll_axis" value="-1"/>
     <param name="pitch_axis" value="-2"/>
     <param name="mode_axis" value="-5"/>
-    <param name="kp" value="3275"/>
+    <param name="kp" value="6550"/>
     <param name="Pgain" value="70"/>
     <param name="Igain" value="40"/>
     <param name="Dgain" value="50"/>
